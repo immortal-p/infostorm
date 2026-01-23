@@ -2,7 +2,7 @@ import { Title, Paper, Button } from '@mantine/core';
 import { type Post } from '../../model/types';
 import { PostModal } from './PostModal';
 import { useDisclosure } from '@mantine/hooks';
-import { useTranslation } from 'react-i18next';
+import { MdMenuBook } from "react-icons/md";
 
 interface PostItemProps {
     post: Post;
@@ -10,7 +10,6 @@ interface PostItemProps {
 
 export function PostItem({ post }: PostItemProps) {
     const [opened, { open, close }] = useDisclosure(false);
-    const { t } = useTranslation();
     return (
         <>
             <Paper
@@ -20,10 +19,10 @@ export function PostItem({ post }: PostItemProps) {
                 mb="sm"
                 radius="md"
             >
-                <Title className="max-w-[80%]" order={4}>
+                <Title className="max-w-[90%]" order={4}>
                     {post.title}
                 </Title>
-                <Button onClick={open}>{t('ui.view')}</Button>
+                <Button onClick={open} className='p-2! min-h-10'><MdMenuBook className='text-neutral-200 h-6 w-8'/></Button>
             </Paper>
             <PostModal opened={opened} onClose={close} post={post} />
         </>
