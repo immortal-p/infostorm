@@ -13,7 +13,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
                     fontFamily: 'Inter, sans-serif',
                     primaryColor: 'blue',
                 }}
-                defaultColorScheme="light"
+                defaultColorScheme="dark"
             >
                 <ModalsProvider>
                     <Notifications />

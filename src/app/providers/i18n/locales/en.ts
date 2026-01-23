@@ -15,11 +15,18 @@ export default {
         },
         ui: {
             title: 'Infostorm',
+            example: 'Examples Rss',
+            addBtn: 'add',
             posts: 'Posts',
             feeds: 'Feeds',
             view: 'View',
             close: 'Close',
             read: 'Read in the source',
+            list: 'RSS List',
+            news: 'News',
+            tech: 'Tech & AI',
+            business: 'Business',
+            travel: 'Travel'
         },
     },
 };
