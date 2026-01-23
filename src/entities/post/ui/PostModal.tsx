@@ -1,4 +1,3 @@
-// src/shared/ui/PostItem/PostModal/PostModal.tsx
 import {
     Modal,
     Title,
@@ -75,7 +74,7 @@ export function PostModal({ opened, onClose, post }: PostModalProps) {
                     />
                 </Box>
             )}
-            <Stack gap="md" p="xl">
+            <Stack gap="md" p="lg">
                 <Stack gap="xs">
                     <Title order={2} style={{ lineHeight: 1.2 }}>
                         {post.title}
@@ -94,13 +93,13 @@ export function PostModal({ opened, onClose, post }: PostModalProps) {
                 <Divider />
 
                 <ScrollArea.Autosize mah={400} type="hover">
-                    <Text>
+                    <div>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: post.description || 'Нет описания',
                             }}
                         />
-                    </Text>
+                    </div>
                 </ScrollArea.Autosize>
 
                 <Divider />

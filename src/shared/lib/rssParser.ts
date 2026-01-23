@@ -7,8 +7,6 @@ export const parseRss = (xmlString: string, url: string) => {
         throw new Error('parse_error');
     }
 
-    console.log(doc);
-
     const channel = doc.querySelector('channel');
     const feed = {
         title: channel?.querySelector('title')?.textContent ?? '',

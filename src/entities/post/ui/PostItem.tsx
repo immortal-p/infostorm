@@ -20,7 +20,7 @@ export function PostItem({ post }: PostItemProps) {
                 mb="sm"
                 radius="md"
             >
-                <Title className="max-w-[85%]" order={4}>
+                <Title className="max-w-[80%]" order={4}>
                     {post.title}
                 </Title>
                 <Button onClick={open}>{t('ui.view')}</Button>

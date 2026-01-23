@@ -1,4 +1,5 @@
-import { useForm, yupResolver } from '@mantine/form';
+import { useForm } from '@mantine/form';
+import { yupResolver } from 'mantine-form-yup-resolver';
 import { TextInput, Button, Group } from '@mantine/core';
 import { useRSSStore } from '../../../entities/model/store';
 import { useFeedSchema } from '../model/validation';
@@ -44,7 +45,7 @@ export function AddFeedForm() {
     };
 
     return (
-        <form onSubmit={form.onSubmit(handleSubmit)} className="mt-4">
+        <form onSubmit={form.onSubmit(handleSubmit)} className="mt-4 min-h-27.5">
             <Group align="flex-start">
                 <TextInput
                     size="lg"
@@ -54,10 +55,10 @@ export function AddFeedForm() {
                     {...form.getInputProps('url')}
                     disabled={loading}
                     style={{ width: 900 }}
-                    className="flex-1!"
+                    className="flex-1! [&>label]:mb-2"
                 />
-                <Button type="submit" size="lg" mt={27} loading={loading}>
-                    Добавить
+                <Button type="submit" size="lg" className='min-w-35' mt={36} loading={loading}>
+                    {t('ui.addBtn')}
                 </Button>
             </Group>
         </form>

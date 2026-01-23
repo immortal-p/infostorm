@@ -10,7 +10,7 @@ export function FeedList() {
 
     return (
         <div>
-            <h3>{t('ui.feeds')}</h3>
+            <h3 className="mb-4 text-xl">{t('ui.feeds')}</h3>
             {feeds.map((item) => (
                 <FeedItem key={item.id} feed={item} />
             ))}

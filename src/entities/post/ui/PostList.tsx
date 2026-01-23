@@ -10,7 +10,7 @@ export function PostList() {
 
     return (
         <div>
-            <h3>{t('ui.posts')}</h3>
+            <h3 className="mb-4 text-xl">{t('ui.posts')}</h3>
             {posts.map((item) => (
                 <PostItem key={item.id} post={item} />
             ))}
