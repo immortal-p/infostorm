@@ -1,19 +1,20 @@
 import { useForm } from '@mantine/form';
 import { yupResolver } from 'mantine-form-yup-resolver';
 import { TextInput, Button, Group } from '@mantine/core';
-import { useRSSStore } from '../../../entities/model/store';
 import { useFeedSchema } from '../model/validation';
-import { fetchRssContent } from '../../../entities/feed/api/feedApi';
-import { parseRss } from '../../../shared/lib/rssParser';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch';
+import { addFeed } from '../../../app/state/features/addFeed/model/addFeedThunk';
+import { useAppSelector } from '../../../shared/lib/hooks/useAppSelector';
+import { selectFeeds } from '../../../app/state/entities/feed/model/selectors';
 
 export function AddFeedForm() {
+    const dispatch = useAppDispatch()
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
-    const feeds = useRSSStore((state) => state.feeds);
-    const addFeedWithPosts = useRSSStore((state) => state.addFeedWithPosts);
 
+    const feeds = useAppSelector(selectFeeds);
     const existingUrls = feeds.map((f) => f.url);
 
     const form = useForm({
@@ -25,20 +26,10 @@ export function AddFeedForm() {
     const handleSubmit = async (values: { url: string }) => {
         setLoading(true);
         try {
-            const xml = await fetchRssContent(values.url);
-            const { feed, items } = parseRss(xml, values.url);
-            addFeedWithPosts(feed, items);
+            await dispatch(addFeed(values.url)).unwrap()
             form.reset();
-        } catch (err: unknown) {
-            if (err instanceof Error) {
-                if (err.message === 'parse_error') {
-                    form.setFieldError('url', t('errors.invalidRss'));
-                } else {
-                    form.setFieldError('url', t('errors.networkError'));
-                }
-            } else {
-                form.setFieldError('url', t('errors.unkownError'));
-            }
+        } catch (err) {
+            form.setFieldError('url', t('errors.newtworkError'))
         } finally {
             setLoading(false);
         }

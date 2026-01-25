@@ -1,8 +1,10 @@
 import { Title, Paper, Button } from '@mantine/core';
-import { type Post } from '../../model/types';
+import type { Post } from '../../../app/state/entities/post/model/types';
 import { PostModal } from './PostModal';
 import { useDisclosure } from '@mantine/hooks';
 import { MdMenuBook } from "react-icons/md";
+import { useDispatch } from 'react-redux';
+import { postMarkedRead } from '../../../app/state/entities/post/model/slice';
 
 interface PostItemProps {
     post: Post;
@@ -10,6 +12,12 @@ interface PostItemProps {
 
 export function PostItem({ post }: PostItemProps) {
     const [opened, { open, close }] = useDisclosure(false);
+    const dispatch = useDispatch()
+
+    const handleReadClick = () => {
+        dispatch(postMarkedRead(post.id))
+    }
+
     return (
         <>
             <Paper
@@ -22,7 +30,9 @@ export function PostItem({ post }: PostItemProps) {
                 <Title className="max-w-[90%]" order={4}>
                     {post.title}
                 </Title>
-                <Button onClick={open} className='p-2! min-h-10'><MdMenuBook className='text-neutral-200 h-6 w-8'/></Button>
+                <Button onClick={() => { open(); handleReadClick() }} className={`p-2! min-h-10 ${post.read === true ? 'bg-gray-700!' : '' }`}>
+                    <MdMenuBook className='text-neutral-200 h-6 w-8'/>
+                </Button>
             </Paper>
             <PostModal opened={opened} onClose={close} post={post} />
         </>

@@ -11,7 +11,7 @@ import {
     Box,
 } from '@mantine/core';
 import { IconExternalLink, IconCalendar, IconX } from '@tabler/icons-react';
-import { type Post } from '../../model/types';
+import type { Post } from '../../../app/state/entities/post/model/types';
 import { useTranslation } from 'react-i18next';
 
 interface PostModalProps {
