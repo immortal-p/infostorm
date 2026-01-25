@@ -9,10 +9,11 @@ import LanguageSwitcher from '../widjets/language-switcher/LanguageSwitcher';
 
 function App() {
     const { t } = useTranslation();
+
     return (
         <Container fluid className="p-0!">
             <div className="w-full bg-[#1b1b1b] py-9">
-                <div className="mx-auto max-w-4xl">
+                 <div className="mx-auto max-w-4xl">
                     <div className="flex w-full justify-between">
                         <Group>
                             <img src={rssIcon} alt="" />
