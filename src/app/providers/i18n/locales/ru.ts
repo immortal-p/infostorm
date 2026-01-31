@@ -26,7 +26,7 @@ export default {
             news: 'Новости',
             tech: 'Технологии и ИИ',
             business: 'Бизнес',
-            travel: 'Путишествие'
+            travel: 'Путишествие',
         },
     },
 };

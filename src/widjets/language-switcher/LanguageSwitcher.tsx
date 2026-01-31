@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 export default () => {
     const { i18n } = useTranslation();
-    const isRu = i18n.language === 'ru'
+    const isRu = i18n.language === 'ru';
 
     return (
         <Switch

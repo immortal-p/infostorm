@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { nanoid } from 'nanoid';
 
 export const parseRss = (xmlString: string, url: string) => {
     const parser = new DOMParser();
@@ -10,8 +10,8 @@ export const parseRss = (xmlString: string, url: string) => {
     }
 
     const channel = doc.querySelector('channel');
-    const feedId = nanoid()
-    
+    const feedId = nanoid();
+
     const feed = {
         id: feedId,
         title: channel?.querySelector('title')?.textContent ?? '',
@@ -64,7 +64,7 @@ export const parseRss = (xmlString: string, url: string) => {
         description: item.querySelector('description')?.textContent ?? '',
         date: getDateFromRSS(item),
         img: getImage(item),
-        read: false
+        read: false,
     }));
 
     return { feed, items };

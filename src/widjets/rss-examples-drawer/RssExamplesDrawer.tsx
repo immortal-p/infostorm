@@ -18,6 +18,7 @@ import newsIcon from './assets/news.svg';
 import businessIcon from './assets/business.svg';
 import techIcon from './assets/tech.svg';
 import travelIcon from './assets/travel.svg';
+import { IoCopyOutline } from 'react-icons/io5';
 
 interface RssItem {
     label: string;
@@ -169,10 +170,11 @@ export function RssExamplesDrawer() {
                                                 {({ copy }) => (
                                                     <Button
                                                         size="xs"
+                                                        px={5}
                                                         variant="light"
                                                         onClick={copy}
                                                     >
-                                                        Copy
+                                                        <IoCopyOutline size={16} />
                                                     </Button>
                                                 )}
                                             </CopyButton>

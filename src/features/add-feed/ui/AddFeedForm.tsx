@@ -10,7 +10,7 @@ import { useAppSelector } from '../../../shared/lib/hooks/useAppSelector';
 import { selectFeeds } from '../../../app/state/entities/feed/model/selectors';
 
 export function AddFeedForm() {
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
 
@@ -26,10 +26,10 @@ export function AddFeedForm() {
     const handleSubmit = async (values: { url: string }) => {
         setLoading(true);
         try {
-            await dispatch(addFeed(values.url)).unwrap()
+            await dispatch(addFeed(values.url)).unwrap();
             form.reset();
         } catch (err) {
-            form.setFieldError('url', t('errors.newtworkError'))
+            form.setFieldError('url', t('errors.newtworkError'));
         } finally {
             setLoading(false);
         }
@@ -48,7 +48,7 @@ export function AddFeedForm() {
                     style={{ width: 900 }}
                     className="flex-1! [&>label]:mb-2"
                 />
-                <Button type="submit" size="lg" className='min-w-35' mt={36} loading={loading}>
+                <Button type="submit" size="lg" className="min-w-35" mt={36} loading={loading}>
                     {t('ui.addBtn')}
                 </Button>
             </Group>

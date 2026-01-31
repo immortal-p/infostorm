@@ -26,7 +26,7 @@ export default {
             news: 'News',
             tech: 'Tech & AI',
             business: 'Business',
-            travel: 'Travel'
+            travel: 'Travel',
         },
     },
 };
