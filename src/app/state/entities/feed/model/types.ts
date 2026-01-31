@@ -1,6 +1,6 @@
 export type Feed = {
-    id: string
-    title: string
-    description: string,
-    url: string
-}
+    id: string;
+    title: string;
+    description: string;
+    url: string;
+};
