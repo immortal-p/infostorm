@@ -4,7 +4,7 @@ import { PostList } from '../entities/post/ui/PostList';
 import { AddFeedForm } from '../features/add-feed/ui/AddFeedForm';
 import { useTranslation } from 'react-i18next';
 import { RssExamplesDrawer } from '../widjets/rss-examples-drawer/RssExamplesDrawer';
-import rssIcon from '../shared/assets/icons/rss.svg';
+import storm from '../shared/assets/icons/stormLogo.svg';
 import LanguageSwitcher from '../widjets/language-switcher/LanguageSwitcher';
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
                 <div className="mx-auto max-w-4xl">
                     <div className="flex w-full justify-between">
                         <Group>
-                            <img src={rssIcon} alt="" />
-                            <p className="text-3xl -ml-2">{t('ui.title')}</p>
+                            <img src={storm} alt="" className="w-11" />
+                            <p className="text-3xl -ml-3">{t('ui.title')}</p>
                         </Group>
                         <LanguageSwitcher />
                     </div>
