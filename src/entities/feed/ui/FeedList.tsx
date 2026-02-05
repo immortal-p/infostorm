@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch';
 import { selectFeeds } from '../../../app/state/entities/feed/model/selectors';
 import { feedSelected } from '../../../app/state/entities/feed/model/slice';
 import { Skeleton } from '@mantine/core';
+import type { Feed } from '../../../app/state/entities/feed/model/types';
 
 export function FeedList() {
     const feeds = useAppSelector(selectFeeds);
@@ -23,7 +24,7 @@ export function FeedList() {
                     </div>
                 </>
             ) : (
-                feeds.map((feed) => (
+                feeds.map((feed: Feed) => (
                     <div key={feed.id} onClick={() => dispatch(feedSelected(feed.id))}>
                         <FeedItem feed={feed} activeFeedId={activeFeedId} />
                     </div>
