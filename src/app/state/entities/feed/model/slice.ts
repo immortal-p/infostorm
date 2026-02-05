@@ -7,7 +7,7 @@ type FeedsState = {
     currentFeedId: string | null;
 };
 
-const initialState: FeedsState = {
+export const initialState: FeedsState = {
     ids: [],
     entities: {},
     currentFeedId: null,
@@ -45,3 +45,4 @@ const feedsSlice = createSlice({
 
 export const { feedAdded, feedRemoved, feedSelected } = feedsSlice.actions;
 export const feedsReducer = feedsSlice.reducer;
+export type { FeedsState }

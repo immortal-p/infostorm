@@ -1,9 +1,8 @@
 import { createSlice, createEntityAdapter, type PayloadAction } from '@reduxjs/toolkit';
 import { type Post } from './types';
 import { feedRemoved } from '../../feed/model/slice';
-import { type RootStore } from '../../..';
 
-const postsAdapter = createEntityAdapter<Post>();
+export const postsAdapter = createEntityAdapter<Post>();
 
 const postsSlice = createSlice({
     name: 'post',
@@ -28,9 +27,5 @@ const postsSlice = createSlice({
     },
 });
 
-export { postsAdapter };
 export const { postsAdded, postMarkedRead } = postsSlice.actions;
 export const postsReducer = postsSlice.reducer;
-export const { selectAll: selectAllPosts } = postsAdapter.getSelectors<RootStore>(
-    (state) => state.posts,
-);
