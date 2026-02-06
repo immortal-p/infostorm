@@ -45,4 +45,4 @@ const feedsSlice = createSlice({
 
 export const { feedAdded, feedRemoved, feedSelected } = feedsSlice.actions;
 export const feedsReducer = feedsSlice.reducer;
-export type { FeedsState }
+export type { FeedsState };
